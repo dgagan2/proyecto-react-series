@@ -1,11 +1,10 @@
-import Carousel from './Carousel'
 import buscar from '../assets/buscar.png'
 import { useState } from 'react'
 
 const Header = ({ handleSearch }) => {
   const [dataToLook, setDataToLoook] = useState('')
   const handleData = (event) => {
-    setDataToLoook(event.target.value)
+    setDataToLoook(event.target.value.toLowerCase())
   }
   return (
     <header>
@@ -29,9 +28,6 @@ const Header = ({ handleSearch }) => {
               <li className='nav-item'>
                 <a className='nav-link' href='#'>Comedia</a>
               </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='#'>Terror</a>
-              </li>
             </ul>
             <form className='d-flex' role='search'>
               <input className='form-control me-2' type='search' placeholder='Busca tu serie' aria-label='Search' value={dataToLook} onChange={handleData} />
@@ -40,7 +36,6 @@ const Header = ({ handleSearch }) => {
           </div>
         </div>
       </nav>
-      {/* <Carousel /> */}
     </header>
   )
 }
