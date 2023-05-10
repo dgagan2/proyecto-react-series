@@ -1,0 +1,66 @@
+body{
+  margin: 0;
+  padding: 0;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3A6073, #16222A) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100vh !important;
+  color: white !important;
+}
+a{
+  font-size: 17px;
+  text-decoration: none !important;
+  font-weight: 600;
+}
+.container-fluid a{
+  color: white !important;
+}
+form img{
+  width: 32px;
+  background-color: transparent!important;
+  filter: invert(1);
+}
+form button{
+  background-color: transparent;
+  border: none;
+}
+.navbar{
+  background:transparent;
+}
+.navbar-toggler{
+  background-color: rgb(194, 194, 194)!important;
+}
+.container-fluid, Main{
+  margin: 0px 100px !important;
+}
+.carousel-item img{
+  height: 850px;
+}
+.carousel{
+  justify-content: center;
+}
+Main{
+  padding-top: 30px;
+}
+.card-body{
+  height: 90px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.card-img-top{
+  height: 100%;
+}
+main{
+  display: flex;
+    flex-wrap: wrap;
+    margin: 100px;
+    gap: 10px;
+    justify-content: space-between;
+}
+.description{
+  color: white;
+    text-align: inherit;
+    font-weight: 400;
+    font-size: small;
+    padding: 5px;
+}
