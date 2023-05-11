@@ -12,7 +12,7 @@ const AllSeries = ({ MainView }) => {
   useEffect(() => {
     setFilterLimitPeliculas(peliculas.slice(1, 37))
   }, [peliculas])
-  return ({{MainView(filterLimitPeliculas)}})
+  // return ({{MainView(filterLimitPeliculas)}})
 }
 
 export default AllSeries

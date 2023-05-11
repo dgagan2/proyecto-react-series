@@ -25,12 +25,10 @@ const Principal = () => {
       const id = newData.id
       const name = newData.name
       const image = newData.image ? newData.image.original : noContent
+      const searchId = newData.externals.thetvdb
       let Summary = newData.summary.slice(1, 180)
-      Summary = Summary.replace(/<p>/, '')
-      Summary = Summary.replace(/<b>/, '')
-      Summary = Summary.replace(/p>/, '')
-      Summary = Summary.replace(/i>/, '')
-      return ({ id, name, image, Summary })
+      Summary = Summary.replace(/<\/?p>|<\/?b>/g, '')
+      return ({ id, name, image, Summary, searchId })
     })
     setFilter(dataFilter)
   }, [peliculas])
@@ -41,10 +39,10 @@ const Principal = () => {
       return <img className='card-img-top' src={image} alt={name} />
     }
   }
-  const MainView =(Peliculas){
+  // const MainView =(Peliculas){
     
-  }
-  emptyValue ? null :()=>{AllSeries MainView={MainView}}
+  // }
+  // emptyValue ? null :()=>{AllSeries MainView={MainView}}
   return (
     <>
       <Header handleSearch={API} />

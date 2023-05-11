@@ -7,11 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import Main from './components/Main'
 import Principal from './pages/Principal'
+import Details from './pages/Details'
 
 function App () {
   return (
     <>
-      <Principal />
+      <Details />
+      {/* <Principal /> */}
       {/* <Header />
       <Main /> */}
     </>
