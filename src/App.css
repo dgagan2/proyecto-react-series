@@ -5,12 +5,16 @@ body{
   min-height: 100vh !important;
   color: white !important;
 }
+a, h1, h2, h3, h4{
+  font-family: 'Supreme', sans-serif !important;
+}
+p{
+  font-family: 'Nunito', sans-serif !important;
+}
 a{
   font-size: 17px;
   text-decoration: none !important;
   font-weight: 600;
-}
-.container-fluid a{
   color: white !important;
 }
 form img{

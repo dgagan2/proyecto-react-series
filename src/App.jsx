@@ -1,21 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
 // Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
 // Bootstrap Bundle JS
 import 'bootstrap/dist/js/bootstrap.bundle.min'
-import Main from './components/Main'
-import Principal from './pages/Principal'
-import Details from './pages/Details'
+import { BrowserRouter } from 'react-router-dom'
+import RoutesIndex from './routes/Index'
+import Header from './components/Header'
 
 function App () {
   return (
     <>
-      <Details />
-      {/* <Principal /> */}
-      {/* <Header />
-      <Main /> */}
+      <BrowserRouter>
+        <RoutesIndex />
+      </BrowserRouter>
+
     </>
   )
 }

@@ -1,0 +1,28 @@
+.Container-details{
+    display: flex;
+    flex-direction: column;
+}
+.Serie-details{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.Cast{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+.containerCast h2{
+    text-align: center;
+    margin: 30px;
+}
+.containerCast p{
+    padding-top: 15px;
+    font-size: larger;
+    text-align: center;
+    font-weight: 600;
+}
+.containerCast{
+    margin-bottom: 50px;
+}
