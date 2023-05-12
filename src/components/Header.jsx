@@ -13,17 +13,15 @@ const Header = () => {
     // eslint-disable-next-line no-empty
     if (dataToLook === '' && dataToLook.length < 3) {
     } else {
-      console.log(dataToLook, 'from HEader', state)
       setState(false)
     }
   }
-  console.log(dataToLook)
   return (
     <>
       <header>
         <nav className='navbar navbar-expand-md'>
           <div className='container-fluid'>
-            <NavLink className='navbar-brand fs-1 fw-bolder' to='/'>Series Plus</NavLink>
+            <a className='navbar-brand fs-1 fw-bolder' href='/'>Series Plus</a>
             <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
               <span className='navbar-toggler-icon' />
             </button>

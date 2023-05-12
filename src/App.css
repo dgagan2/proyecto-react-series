@@ -41,8 +41,8 @@ form button{
 .carousel{
   justify-content: center;
 }
-Main{
-  padding-top: 30px;
+.containe-card-filter{
+  padding-top: 50px;
 }
 .card-body{
   height: 90px;
@@ -60,6 +60,7 @@ main{
     margin: 100px;
     gap: 10px;
     justify-content: space-between;
+    margin-bottom: 80px !important;
 }
 .description{
   color: white;

@@ -37,7 +37,7 @@ const Details = () => {
           {seriesDetails
             ? (
               <section className='Serie-details'>
-                <img src={seriesDetails.image.medium} alt={seriesDetails.name} />
+                <img src={seriesDetails?.image?.medium} alt={seriesDetails.name} />
                 <div>
                   <h3>{seriesDetails.name}</h3>
                   <p>{seriesDetails.summary.replace(/<\/?p>|<\/?b>/g, '')}</p>
