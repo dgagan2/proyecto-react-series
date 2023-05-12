@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Carousel from '../components/Carousel'
+import Carousel from './Carousel'
 import { Link } from 'react-router-dom'
 
 const Main = () => {

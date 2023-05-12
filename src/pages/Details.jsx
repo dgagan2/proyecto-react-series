@@ -1,90 +1,74 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import noContent from '../assets/noContent.png'
+import { useEffect, useState } from 'react'
 import './css/Details.css'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { API_MAIN } from '../api/Endpoint.js'
+import Season from '../components/Season'
 
 const Details = () => {
-  const API_SEARCH_BY_ID_TVDB = 'https://api.tvmaze.com/shows/'
-  const { idSerie } = useParams()
-  const API_SEARCH_EPISODES = `https://api.tvmaze.com/shows/${idSerie}/episodes`
-  const API_PEOPLE = `https://api.tvmaze.com/shows/${idSerie}/cast`
-  const [seriesDetails, setSeriesDetails] = useState(null)
-  const [episodes, setEpisodes] = useState([])
-  const [people, setPeople] = useState([])
+  const { idSerie } = useParams('')
+  const [seriesInformation, setSeriesInformation] = useState(null)
+  const [cast, setCast] = useState([])
   useEffect(() => {
-    fetch(`${API_SEARCH_BY_ID_TVDB}${idSerie}`)
+    fetch(`${API_MAIN}${idSerie}`)
       .then(res => res.json())
-      .then(data => setSeriesDetails(data))
-  }, [])
+      .then(data => setSeriesInformation(data))
+  }, [idSerie]) // Se trae informaciòn de la serie(nombre, descripcion etc)
   useEffect(() => {
-    fetch(API_SEARCH_EPISODES)
-      .then(res => res.json()
-        .then(data => setEpisodes(data)))
-  }, [seriesDetails])
-  useEffect(() => {
-    fetch(API_PEOPLE)
+    fetch(`${API_MAIN}${idSerie}/cast`)
       .then(res => res.json())
-      .then(data => setPeople(data))
-  }, [episodes])
-
+      .then(data => setCast(data))
+  }, [idSerie])
+  console.log(`${API_MAIN}${idSerie}/episodes`)
+  // se verificar si seriesInformation es null. Si es así, se establece un objeto vacío como valor predeterminado para la desestructuración.
+  const { name, summary, language, genres, image } = seriesInformation || {}
+  // || se utiliza para establecer un objeto vacío como valor predeterminado para la desestructuración si seriesInformation es null. Si seriesInformation no es null, entonces se usa el objeto seriesInformation para la desestructuración
   return (
-    <>
-      <Header />
-      <main className='Container-details'>
-        <section>
-          {seriesDetails
+    <main className='Container-details d-flex flex-column gap-5'>
+      <section>
+        {seriesInformation
+          ? (
+            <section className='Serie-details'>
+              <img src={image?.medium} alt={name} />
+              <div>
+                <h3>{name}</h3>
+                <p>{summary.replace(/<\/?p>|<\/?b>/g, '')}</p>
+                <p>Idioma : {language}</p>
+                <p>Genero: {genres}</p>
+              </div>
+
+            </section>
+            )
+          : (
+            <p>Loading...</p>
+            )}
+      </section>
+      <section className='List-chapters'>
+        <h4>Listado de capitulos</h4>
+        <div className='accordion' id='accordionExample'>
+          <Season idSerie={idSerie} />
+        </div>
+      </section>
+      <section className='containerCast'>
+        <aside>
+          <h2>Elenco</h2>
+        </aside>
+        <aside className='Cast'>
+          {cast
             ? (
-              <section className='Serie-details'>
-                <img src={seriesDetails?.image?.medium} alt={seriesDetails.name} />
-                <div>
-                  <h3>{seriesDetails.name}</h3>
-                  <p>{seriesDetails.summary.replace(/<\/?p>|<\/?b>/g, '')}</p>
-                  <p>Idioma : {seriesDetails.language}</p>
-                  <p>Genero: {seriesDetails.genres}</p>
-                </div>
+                cast.map(data => (
+                  <aside key={data.person.id}>
+                    <div className='photo'>
+                      <img src={data?.person?.image?.medium} alt='' />
+                    </div>
+                    <p>{data.person.name}</p>
+                  </aside>
+                )))
+            : (<p>Loading</p>)}
+        </aside>
 
-              </section>
-              )
-            : (
-              <p>Loading...</p>
-              )}
-        </section>
-        <section className='List-chapters'>
-          <h4>Listado de capitulos</h4>
-          <ul>
-            {episodes.map(x => (
-
-              <li key={x.id}>
-                <Link to={x.url}>
-                  Temporada: {x.season}, Episodio: {x.number}, Nombre: {x.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section className='containerCast'>
-          <aside>
-            <h2>Elenco</h2>
-          </aside>
-          <aside className='Cast'>
-            {people
-              ? (
-                  people.map(x => (
-                    <aside key={x.person.id}>
-                      <div className='photo'>
-                        <img src={x.person.image.medium} alt='' />
-                      </div>
-                      <p>{x.person.name}</p>
-                    </aside>
-                  )))
-              : (<p>Loading</p>)}
-          </aside>
-
-        </section>
-      </main>
-    </>
+      </section>
+    </main>
   )
 }
 

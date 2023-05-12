@@ -5,14 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import { BrowserRouter } from 'react-router-dom'
 import RoutesIndex from './routes/Index'
+import Header from './components/Header'
 
 function App () {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <RoutesIndex />
       </BrowserRouter>
-
     </>
   )
 }

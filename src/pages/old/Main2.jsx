@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Carousel from '../components/Carousel'
+import Carousel from '../../components/old/Carousel'
 import noContent from '../assets/noContent.png'
 import { Link } from 'react-router-dom'
 
