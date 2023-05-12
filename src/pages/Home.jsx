@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../components/old/Header'
-
+import Carrousel from '../components/Carrousel'
+import './css/Home.css'
 const Home = () => {
   return (
-    <Header />
+    <Carrousel />
   )
 }
 

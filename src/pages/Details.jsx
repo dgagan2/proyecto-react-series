@@ -10,16 +10,16 @@ const Details = () => {
   const [seriesInformation, setSeriesInformation] = useState(null)
   const [cast, setCast] = useState([])
   useEffect(() => {
-    fetch(`${API_MAIN}${idSerie}`)
+    fetch(`${API_MAIN}/${idSerie}`)
       .then(res => res.json())
       .then(data => setSeriesInformation(data))
   }, [idSerie]) // Se trae informaciòn de la serie(nombre, descripcion etc)
   useEffect(() => {
-    fetch(`${API_MAIN}${idSerie}/cast`)
+    fetch(`${API_MAIN}/${idSerie}/cast`)
       .then(res => res.json())
       .then(data => setCast(data))
   }, [idSerie])
-  console.log(`${API_MAIN}${idSerie}/episodes`)
+  console.log(`${API_MAIN}/${idSerie}/episodes`)
   // se verificar si seriesInformation es null. Si es así, se establece un objeto vacío como valor predeterminado para la desestructuración.
   const { name, summary, language, genres, image } = seriesInformation || {}
   // || se utiliza para establecer un objeto vacío como valor predeterminado para la desestructuración si seriesInformation es null. Si seriesInformation no es null, entonces se usa el objeto seriesInformation para la desestructuración
