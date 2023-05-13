@@ -1,10 +1,15 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import buscar from '../assets/buscar.png'
 import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ HandleData }) => {
+const Header = () => {
   const [dataToSearch, setDataToSearch] = useState('')
+  const [verificationValue, setVerificationValue] = useState(false)
+  const HandleData = () => {
+    // eslint-disable-next-line no-empty
+    if (dataToSearch === '' && dataToSearch.length < 3) setVerificationValue(true)
+  }
   return (
     <header>
       <nav className='navbar navbar-expand-md'>
@@ -30,7 +35,10 @@ const Header = ({ HandleData }) => {
             </ul>
             <form className='d-flex' role='search'>
               <input className='form-control me-2' type='search' placeholder='Busca tu serie' aria-label='Search' value={dataToSearch} onChange={(event) => { setDataToSearch(event.target.value.toLowerCase()) }} />
-              <button className='SearchContent' type='button'><img src={buscar} className=' bg-transparent' alt='icon_search' onClick={() => { HandleData() }} /></button>
+              <Link to={verificationValue ? `/${dataToSearch}` : '#'}>
+                <img src={buscar} className=' bg-transparent' alt='icon_search' onClick={() => { HandleData() }} />
+              </Link>
+
             </form>
           </div>
         </div>

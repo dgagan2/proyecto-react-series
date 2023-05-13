@@ -35,32 +35,14 @@ form button{
 .container-fluid, Main{
   margin: 0px 100px !important;
 }
-.carousel-item img{
-  height: 850px;
-}
 .carousel{
   justify-content: center;
 }
 .containe-card-filter{
   padding-top: 50px;
 }
-.card-body{
-  height: 90px;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
 .card-img-top{
   height: 100%;
-}
-main{
-  display: flex;
-    flex-wrap: wrap;
-    margin: 100px;
-    gap: 10px;
-    justify-content: space-between;
-    margin-bottom: 80px !important;
 }
 .description{
   color: white;

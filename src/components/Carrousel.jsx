@@ -14,7 +14,7 @@ const Carrousel = () => {
         <div className='carousel-inner'>
           <div className='carousel-item active' data-bs-interval='50' />
           {images.map(data => (
-            <div key={data.id} className='carousel-item' data-bs-interval='9000'>
+            <div key={data.id} className='carousel-item' data-bs-interval='8000'>
               <img src={data?.image?.original} className='d-block w-100' alt={`${data.id} slide`} />
             </div>
           ))}

@@ -1,0 +1,16 @@
+.card-img-top{
+    height: 300px;
+}
+.card-body{
+    padding: 7px !important;
+}
+.containe-card-filter{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    margin-bottom: 80px !important;
+}
+.card-body-link{
+    padding-top: 0px !important;
+}
