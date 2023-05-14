@@ -1,6 +1,6 @@
 .Carousel{
     opacity: 0.7;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -12,6 +12,11 @@ header{
     z-index: 40;
     width: 100%;
 }
-#carouselSeries{
+#carouselBackground{
     height: 100% !important;
+}
+#CarouselCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

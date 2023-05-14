@@ -8,13 +8,17 @@ const Header = () => {
   const [verificationValue, setVerificationValue] = useState(false)
   const HandleData = () => {
     // eslint-disable-next-line no-empty
-    if (dataToSearch === '' && dataToSearch.length < 3) setVerificationValue(true)
+    console.log('test 1')
+    if (dataToSearch === '' && dataToSearch.length < 3) { /* empty */ } else {
+      setVerificationValue(true)
+    }
   }
+  console.log(verificationValue)
   return (
     <header>
       <nav className='navbar navbar-expand-md'>
         <div className='container-fluid'>
-          <a className='navbar-brand fs-1 fw-bolder' href='/'>Series Plus</a>
+          <NavLink className='navbar-brand fs-1 fw-bolder' to='/'>Series Plus</NavLink>
           <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon' />
           </button>
@@ -35,10 +39,9 @@ const Header = () => {
             </ul>
             <form className='d-flex' role='search'>
               <input className='form-control me-2' type='search' placeholder='Busca tu serie' aria-label='Search' value={dataToSearch} onChange={(event) => { setDataToSearch(event.target.value.toLowerCase()) }} />
-              <Link to={verificationValue ? `/${dataToSearch}` : '#'}>
-                <img src={buscar} className=' bg-transparent' alt='icon_search' onClick={() => { HandleData() }} />
+              <Link onClick={() => { HandleData() }} to={verificationValue ? (`/${dataToSearch}`) : '#'}>
+                <img src={buscar} className=' bg-transparent' alt='icon_search' />
               </Link>
-
             </form>
           </div>
         </div>
