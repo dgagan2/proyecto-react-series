@@ -20,6 +20,7 @@
 }
 .accordion-item {
     background-color: transparent !important;
+    border-width: 0px !important;
 }
 .accordion-button{
     background-color: white !important;

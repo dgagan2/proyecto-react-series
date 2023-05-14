@@ -7,7 +7,7 @@ const Season = ({ idSerie }) => {
   const [episodes, setEpisodes] = useState([])
   let count = 1
   useEffect(() => {
-    fetch(`${API_MAIN}${idSerie}/episodes`)
+    fetch(`${API_MAIN}/${idSerie}/episodes`)
       .then(res => res.json()
         .then(data => setEpisodes(data)))
   }, [idSerie])
@@ -18,6 +18,7 @@ const Season = ({ idSerie }) => {
     seasons[episode.season].push(episode)
     return seasons
   }, {})
+  console.log(`${API_MAIN}/${idSerie}/episodes`)
   return (
     <>
       {Object.entries(episodesBySeason).map(([season, episodes]) => (

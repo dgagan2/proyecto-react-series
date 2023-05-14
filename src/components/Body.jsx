@@ -13,7 +13,7 @@ const Body = () => {
   }, [])
   return (
     <main className='containe-card-filter' style={{ paddingTop: '180px' }}>
-      {peliculas.slice(1, 20).map(data => (
+      {peliculas.map(data => (
         <section key={data.id} className='card' style={{ width: '15rem', backgroundColor: 'rgb(27 31 47 / 0%)' }}>
           <img src={data?.image?.medium} className='card-img-top' alt={data.name} />
           <aside className='card-body d-flex flex-column'>
@@ -23,7 +23,7 @@ const Body = () => {
             </div>
           </aside>
           <div className='card-body-link'>
-            <Link to='#' className='card-link'>Ver mas</Link>
+            <Link to={`/serie/${data.id}`} className='card-link'>Ver mas</Link>
           </div>
         </section>
       ))}

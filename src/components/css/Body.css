@@ -2,7 +2,7 @@
     height: 320px;
 }
 .card-body{
-    padding: 7px !important;
+    padding: 7px 1px 3px 1px !important;
 }
 .containe-card-filter{
     display: flex;
